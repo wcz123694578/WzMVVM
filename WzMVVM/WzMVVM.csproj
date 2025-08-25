@@ -4,9 +4,10 @@
 		<TargetFramework>netstandard2.1</TargetFramework>
 		<Nullable>enable</Nullable>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<PackageId>wz-mvvm</PackageId>
+		<PackageId>WzMVVM</PackageId>
 		<Title>WzMVVM</Title>
 		<Description>临时小MVVM框架</Description>
+		<Version>1.0.2</Version>
 	</PropertyGroup>
 
 </Project>

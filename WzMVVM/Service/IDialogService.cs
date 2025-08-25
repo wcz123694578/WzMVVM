@@ -9,6 +9,6 @@ namespace WzMVVM.Service
     /// </summary>
     public interface IDialogService
     {
-        void ShowDialog<TViewModel>(DialogParameters parameters, TViewModel viewModel) where TViewModel : class;
+        DialogResult ShowDialog<TViewModel>(DialogParameters parameters, TViewModel viewModel) where TViewModel : class;
     }
 }
