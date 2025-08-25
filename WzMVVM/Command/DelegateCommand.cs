@@ -11,7 +11,7 @@ namespace WzMVVM.Command
     public class DelegateCommand : ICommand
     {
         private readonly Action _execute;
-        private readonly Func<bool> _canExecute;
+        private readonly Func<bool>? _canExecute;
         private bool _isActive;
 
         /// <summary>
@@ -19,7 +19,7 @@ namespace WzMVVM.Command
         /// </summary>
         /// <param name="execute">执行逻辑</param>
         /// <param name="canExecute">判断是否可执行逻辑</param>
-        public DelegateCommand(Action execute, Func<bool> canExecute = null)
+        public DelegateCommand(Action execute, Func<bool>? canExecute = null)
         {
             _execute = execute ?? throw new ArgumentNullException(nameof(execute));
             _canExecute = canExecute;
@@ -52,7 +52,7 @@ namespace WzMVVM.Command
         /// <summary>
         /// 命令的可执行状态改变时触发
         /// </summary>
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler? CanExecuteChanged;
 
         /// <summary>
         /// 获取或设置命令的活动状态（常用于UI指示）
@@ -73,7 +73,7 @@ namespace WzMVVM.Command
         /// <summary>
         /// IsActive 属性改变时触发
         /// </summary>
-        public event EventHandler IsActiveChanged;
+        public event EventHandler? IsActiveChanged;
 
         protected virtual void OnIsActiveChanged()
         {
@@ -87,7 +87,7 @@ namespace WzMVVM.Command
     public class DelegateCommand<T> : ICommand
     {
         private readonly Action<T> _execute;
-        private readonly Func<T, bool> _canExecute;
+        private readonly Func<T, bool>? _canExecute;
         private bool _isActive;
 
         /// <summary>
@@ -95,7 +95,7 @@ namespace WzMVVM.Command
         /// </summary>
         /// <param name="execute">执行逻辑</param>
         /// <param name="canExecute">判断是否可执行逻辑</param>
-        public DelegateCommand(Action<T> execute, Func<T, bool> canExecute = null)
+        public DelegateCommand(Action<T> execute, Func<T, bool>? canExecute = null)
         {
             _execute = execute ?? throw new ArgumentNullException(nameof(execute));
             _canExecute = canExecute;
@@ -141,7 +141,7 @@ namespace WzMVVM.Command
         /// <summary>
         /// 命令的可执行状态改变时触发
         /// </summary>
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler? CanExecuteChanged;
 
         /// <summary>
         /// 获取或设置命令的活动状态
@@ -162,7 +162,7 @@ namespace WzMVVM.Command
         /// <summary>
         /// IsActive 属性改变时触发
         /// </summary>
-        public event EventHandler IsActiveChanged;
+        public event EventHandler? IsActiveChanged;
 
         protected virtual void OnIsActiveChanged()
         {

@@ -12,10 +12,10 @@ namespace WzMVVM.Command
     public class DelegateCommandAsync : ICommand
     {
         private readonly Func<Task> _execute;
-        private readonly Func<bool> _canExecute;
+        private readonly Func<bool>? _canExecute;
         private bool _isExecuting;
 
-        public DelegateCommandAsync(Func<Task> execute, Func<bool> canExecute = null)
+        public DelegateCommandAsync(Func<Task> execute, Func<bool>? canExecute = null)
         {
             _execute = execute ?? throw new ArgumentNullException(nameof(execute));
             _canExecute = canExecute;
@@ -43,7 +43,7 @@ namespace WzMVVM.Command
             }
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler? CanExecuteChanged;
 
         public void RaiseCanExecuteChanged()
         {
@@ -57,10 +57,10 @@ namespace WzMVVM.Command
     public class DelegateCommandAsync<T> : ICommand
     {
         private readonly Func<T, Task> _execute;
-        private readonly Func<T, bool> _canExecute;
+        private readonly Func<T, bool>? _canExecute;
         private bool _isExecuting;
 
-        public DelegateCommandAsync(Func<T, Task> execute, Func<T, bool> canExecute = null)
+        public DelegateCommandAsync(Func<T, Task> execute, Func<T, bool>? canExecute = null)
         {
             _execute = execute ?? throw new ArgumentNullException(nameof(execute));
             _canExecute = canExecute;
@@ -97,7 +97,7 @@ namespace WzMVVM.Command
             }
         }
 
-        public event EventHandler CanExecuteChanged;
+        public event EventHandler? CanExecuteChanged;
 
         public void RaiseCanExecuteChanged()
         {

@@ -14,13 +14,13 @@ namespace WzMVVM.MVVM
     {
         #region INotifyPropertyChanged 实现
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         /// <summary>
         /// 触发 PropertyChanged 事件
         /// </summary>
         /// <param name="propertyName">属性名称（通常使用 CallerMemberName 自动获取）</param>
-        protected virtual void RaisePropertyChanged([CallerMemberName] string propertyName = null)
+        protected virtual void RaisePropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
@@ -33,7 +33,7 @@ namespace WzMVVM.MVVM
         /// <param name="value">新值</param>
         /// <param name="propertyName">属性名称</param>
         /// <returns>如果值已更改返回 true，否则返回 false</returns>
-        protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string propertyName = null)
+        protected bool SetProperty<T>(ref T field, T value, [CallerMemberName] string? propertyName = null)
         {
             if (EqualityComparer<T>.Default.Equals(field, value))
                 return false;
@@ -54,7 +54,7 @@ namespace WzMVVM.MVVM
             get { return _errorsByPropertyName.Any(); }
         }
 
-        public event EventHandler<DataErrorsChangedEventArgs> ErrorsChanged;
+        public event EventHandler<DataErrorsChangedEventArgs>? ErrorsChanged;
 
         public IEnumerable GetErrors(string propertyName)
         {
@@ -72,7 +72,7 @@ namespace WzMVVM.MVVM
         /// <summary>
         /// 添加验证错误
         /// </summary>
-        protected void AddError(string errorMessage, [CallerMemberName] string propertyName = null)
+        protected void AddError(string errorMessage, [CallerMemberName] string? propertyName = null)
         {
             if (string.IsNullOrEmpty(propertyName)) return;
 
@@ -89,7 +89,7 @@ namespace WzMVVM.MVVM
         /// <summary>
         /// 清除指定属性的所有错误
         /// </summary>
-        protected void ClearErrors([CallerMemberName] string propertyName = null)
+        protected void ClearErrors([CallerMemberName] string? propertyName = null)
         {
             if (string.IsNullOrEmpty(propertyName)) return;
 

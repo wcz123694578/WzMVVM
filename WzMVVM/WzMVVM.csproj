@@ -7,7 +7,7 @@
 		<PackageId>WzMVVM</PackageId>
 		<Title>WzMVVM</Title>
 		<Description>临时小MVVM框架</Description>
-		<Version>1.0.2</Version>
+		<Version>1.0.3</Version>
 	</PropertyGroup>
 
 </Project>
