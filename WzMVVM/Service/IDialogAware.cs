@@ -8,5 +8,6 @@ namespace WzMVVM.Service
     {
         void OnDialogOpened(DialogParameters parameters);
         DialogResult OnDialogClosed();
+        event Action<DialogResult?> RequestClose;
     }
 }

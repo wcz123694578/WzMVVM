@@ -33,7 +33,14 @@ namespace WzMVVM.Wpf.Service
             window.DataContext = viewModel;
 
             if (viewModel is IDialogAware aware)
+            {
                 aware.OnDialogOpened(parameters);
+                aware.RequestClose += result =>
+                {
+                    window.DialogResult = result?.Result;
+                    window.Close();
+                };
+            }
 
             bool? result = window.ShowDialog();
 
